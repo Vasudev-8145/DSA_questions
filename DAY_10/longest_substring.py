@@ -21,3 +21,25 @@ Output: 3
 Explanation: The answer is "wke", with the length of 3.
 Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
 """
+
+s = "pwwkew"
+left = 0
+characters = set()
+highest_length = 0
+
+for right in range(0,len(s)):
+
+    while s[right] in characters:
+
+        characters.remove(s[left])
+        left+=1
+
+    characters.add(s[right])
+
+    current_length = right-left+1
+
+    if current_length > highest_length:
+
+        highest_length = current_length
+
+print(highest_length)
